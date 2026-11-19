@@ -960,7 +960,7 @@
 
                             <div class="card-footer">
                                 <div class="card-price">${formatPrice(item.preco, item.finalidade)}</div>
-                                <a href="https://wa.me/message/QEJKY7G4BXRTP1{waMsg}" target="_blank" class="btn-whatsapp">
+                                <a href="https://wa.me/message/QEJKY7G4BXRTP1" target="_blank" class="btn-whatsapp">
                                     <i class="fa-brands fa-whatsapp"></i> Tenho interesse
                                 </a>
                             </div>
@@ -992,7 +992,7 @@
             `;
 
             const waMsg = encodeURIComponent(`Olá Alex! Vi as fotos do imóvel *${item.titulo}* (Cód: ${item.codigo}) no site e gostaria de agendar uma visita.`);
-            document.getElementById('modal-wa-btn').href = `https://wa.me/message/QEJKY7G4BXRTP1{waMsg}`;
+            document.getElementById('modal-wa-btn').href = `https://wa.me/message/QEJKY7G4BXRTP1`;
 
             const thumbsContainer = document.getElementById('modal-thumbs');
             thumbsContainer.innerHTML = '';
