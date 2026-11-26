@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campos Consultoria Imobiliária | Araraquara e Região</title>
+    <title>Alex Campos Corretor de Imóveis | CRECI: 248909-F - Araraquara e Região</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -63,16 +63,16 @@
         }
 
         .brand-text h1 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            line-height: 1.1;
+            letter-spacing: 0.3px;
+            line-height: 1.15;
         }
 
         .brand-text span {
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             color: var(--text-muted);
         }
 
@@ -176,6 +176,7 @@
 
         .search-tabs {
             display: flex;
+            flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 20px;
             border-bottom: 1px solid #f3f4f6;
@@ -343,6 +344,11 @@
             z-index: 2;
         }
 
+        .badge-purpose.empreendimento {
+            background: var(--gold);
+            color: var(--white);
+        }
+
         .badge-code {
             position: absolute;
             bottom: 12px;
@@ -409,6 +415,20 @@
             margin-bottom: 4px;
         }
 
+        .card-developer {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(13, 59, 46, 0.08);
+            color: var(--emerald);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+
         .card-title {
             font-size: 1.15rem;
             font-weight: 700;
@@ -424,10 +444,21 @@
         .card-location {
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 5px;
+        }
+
+        .card-excerpt {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .card-features {
@@ -459,6 +490,13 @@
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--emerald);
+        }
+
+        .card-price small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-muted);
         }
 
         .btn-whatsapp {
@@ -624,6 +662,19 @@
             margin-top: 4px;
         }
 
+        .modal-developer {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(13, 59, 46, 0.08);
+            color: var(--emerald);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
         .modal-price {
             font-size: 1.6rem;
             font-weight: 700;
@@ -719,11 +770,10 @@
     <header>
         <div class="nav-container">
             <a href="#" class="brand" onclick="resetFilters()">
-                <!-- Salve a imagem da sua logo como logo.png dentro da pasta fotos -->
-                <img src="fotos/logo.png" alt="Campos Consultoria Imobiliária" onerror="this.style.display='none'">
+                <img src="fotos/logo.png" alt="Alex Campos Corretor de Imóveis - CRECI: 248909-F" onerror="this.style.display='none'">
                 <div class="brand-text">
-                    <h1>CAMPOS</h1>
-                    <span>Consultoria Imobiliária</span>
+                    <h1>Alex Campos Corretor de Imóveis</h1>
+                    <span>CRECI: 248909-F</span>
                 </div>
             </a>
 
@@ -731,6 +781,7 @@
                 <a href="#" onclick="filterByPurpose('Todos')">Início</a>
                 <a href="#imoveis" onclick="filterByPurpose('Venda')">Comprar</a>
                 <a href="#imoveis" onclick="filterByPurpose('Locação')">Alugar</a>
+                <a href="#imoveis" onclick="filterByPurpose('Empreendimento')">Empreendimentos</a>
                 <a href="#contato">Contato</a>
             </nav>
 
@@ -748,15 +799,16 @@
 
     <section class="hero">
         <h2>O passo seguro para a sua conquista</h2>
-        <p>Encontre os melhores imóveis em Araraquara e Região com atendimento personalizado.</p>
+        <p>Alex Campos Corretor de Imóveis (CRECI: 248909-F) — Encontre os melhores imóveis e lançamentos em Araraquara e Região com atendimento personalizado.</p>
     </section>
 
     <div class="search-wrapper">
         <div class="search-box">
             <div class="search-tabs">
-                <button class="tab-btn active" onclick="setTab(this, 'Todos')">Todos</button>
-                <button class="tab-btn" onclick="setTab(this, 'Venda')">Comprar</button>
-                <button class="tab-btn" onclick="setTab(this, 'Locação')">Alugar</button>
+                <button class="tab-btn active" data-purpose="Todos" onclick="setTab(this, 'Todos')">Todos</button>
+                <button class="tab-btn" data-purpose="Venda" onclick="setTab(this, 'Venda')">Comprar</button>
+                <button class="tab-btn" data-purpose="Locação" onclick="setTab(this, 'Locação')">Alugar</button>
+                <button class="tab-btn" data-purpose="Empreendimento" onclick="setTab(this, 'Empreendimento')">Empreendimentos</button>
             </div>
 
             <div class="search-grid">
@@ -767,7 +819,7 @@
                         <option value="Casa">Casa / Sobrado</option>
                         <option value="Apartamento">Apartamento</option>
                         <option value="Condomínio">Casa em Condomínio</option>
-                        <option value="Terreno">Terreno</option>
+                        <option value="Loteamento">Loteamento / Terreno</option>
                         <option value="Comercial">Comercial</option>
                     </select>
                 </div>
@@ -784,13 +836,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Bairro ou Código</label>
-                    <input type="text" id="filter-search" placeholder="Ex: Centro, Damha, Cód...">
+                    <label>Bairro, Código ou Incorporadora</label>
+                    <input type="text" id="filter-search" placeholder="Ex: Centro, Damha, MRV, Cód...">
                 </div>
 
                 <div class="form-group">
                     <button class="btn-search" onclick="applyFilters()">
-                        <i class="fa-solid fa-magnifying-glass"></i> Buscar Imóveis
+                        <i class="fa-solid fa-magnifying-glass"></i> Buscar
                     </button>
                 </div>
             </div>
@@ -855,7 +907,8 @@
                     <div>
                         <span class="card-type" id="modal-type"></span>
                         <h3 class="modal-title" id="modal-title"></h3>
-                        <p class="card-location" id="modal-location" style="margin-bottom: 0; margin-top: 4px;"></p>
+                        <div id="modal-developer-wrap"></div>
+                        <p class="card-location" id="modal-location" style="margin-bottom: 0; margin-top: 8px;"></p>
                     </div>
                     <div class="modal-price" id="modal-price"></div>
                 </div>
@@ -865,7 +918,7 @@
                 <p class="modal-desc" id="modal-desc"></p>
 
                 <a href="#" target="_blank" class="btn-whatsapp" id="modal-wa-btn" style="padding: 12px 24px; font-size: 1rem;">
-                    <i class="fa-brands fa-whatsapp"></i> Falar com Alex Campos sobre este imóvel
+                    <i class="fa-brands fa-whatsapp"></i> Falar com Alex Campos Corretor de Imóveis sobre este imóvel
                 </a>
             </div>
         </div>
@@ -874,15 +927,16 @@
     <footer id="contato">
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Campos Consultoria Imobiliária</h4>
+                <h4>Alex Campos Corretor de Imóveis</h4>
+                <p>CRECI: 248909-F</p>
                 <p>Araraquara e Região • O passo seguro para a sua conquista.</p>
-                <p>Atendimento especializado para compra, venda e locação de imóveis.</p>
-                <p>CRECI: 248909 - F</p>
+                <p>Atendimento especializado para compra, venda, locação e lançamentos.</p>
             </div>
             <div class="footer-col">
                 <h4>Navegação</h4>
-                <a href="#" onclick="filterByPurpose('Venda')">Imóveis à Venda</a>
-                <a href="#" onclick="filterByPurpose('Locação')">Imóveis para Alugar</a>
+                <a href="#imoveis" onclick="filterByPurpose('Venda')">Imóveis à Venda</a>
+                <a href="#imoveis" onclick="filterByPurpose('Locação')">Imóveis para Alugar</a>
+                <a href="#imoveis" onclick="filterByPurpose('Empreendimento')">Empreendimentos</a>
                 <a href="#" onclick="toggleShowFavorites()">Meus Favoritos</a>
             </div>
             <div class="footer-col">
@@ -893,15 +947,15 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Campos Consultoria Imobiliária. Todos os direitos reservados.
+            © 2026 Alex Campos Corretor de Imóveis • CRECI: 248909-F. Todos os direitos reservados.
         </div>
     </footer>
 
-    <a href="https://wa.me/message/QEJKY7G4BXRTP1." target="_blank" class="float-wa" title="Falar no WhatsApp">
+    <a href="https://wa.me/message/QEJKY7G4BXRTP1" target="_blank" class="float-wa" title="Falar com Alex Campos Corretor de Imóveis no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Carrega a sua lista de imóveis do arquivo imoveis.js -->
+    <!-- Carrega a sua lista de imóveis e empreendimentos do arquivo imoveis.js -->
     <script src="imoveis.js"></script>
 
     <script>
@@ -914,31 +968,43 @@
         let currentPhotoIndex = 0;
 
         function formatPrice(value, purpose) {
-            const formatted = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            return purpose.toLowerCase().includes('loca') ? `${formatted} /mês` : formatted;
+    if (!value || value === 0) return 'Consulte condições';
+    const formatted = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    if (purpose.toLowerCase().includes('loca')) return `${formatted} /mês`;
+    return formatted;
         }
 
         function renderProperties(list) {
             const container = document.getElementById('properties-container');
             const countEl = document.getElementById('results-count');
             container.innerHTML = '';
-            countEl.textContent = `${list.length} imóvel(is) encontrado(s)`;
+            
+            const labelItem = currentPurpose === 'Empreendimento' ? 'empreendimento(s)' : 'item(ns)';
+            countEl.textContent = `${list.length} ${labelItem} encontrado(s)`;
 
             if (list.length === 0) {
-                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">Nenhum imóvel encontrado com esses filtros.</p>';
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">Nenhum imóvel ou empreendimento encontrado com esses filtros.</p>';
                 return;
             }
 
             list.forEach(item => {
                 const isFav = favorites.includes(item.codigo);
-                const waMsg = encodeURIComponent(`Olá Alex! Tenho interesse no imóvel *${item.titulo}* (Cód: ${item.codigo}) que vi no site.`);
-                const fotos = (item.imagens && item.imagens.length > 0) ? item.imagens : ['https://unsplash.com'];
+                const isEmpreendimento = item.finalidade.toLowerCase().includes('empreendimento');
+                const fotos = (item.imagens && item.imagens.length > 0) ? item.imagens : ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80'];
                 const totalFotos = fotos.length;
                 
+                const incorporadoraHtml = item.incorporadora 
+                    ? `<div class="card-developer"><i class="fa-solid fa-building"></i> Incorporadora: ${item.incorporadora}</div>` 
+                    : '';
+
+                const descricaoResumoHtml = (isEmpreendimento && item.descricao)
+                    ? `<p class="card-excerpt">${item.descricao}</p>`
+                    : '';
+
                 const card = `
                     <div class="property-card">
                         <div class="card-img-wrap" onclick="openGallery('${item.codigo}')">
-                            <span class="badge-purpose">${item.finalidade}</span>
+                            <span class="badge-purpose ${isEmpreendimento ? 'empreendimento' : ''}">${item.finalidade}</span>
                             <span class="badge-code">Cód: ${item.codigo}</span>
                             <span class="badge-photos"><i class="fa-regular fa-images"></i> ${totalFotos} ${totalFotos === 1 ? 'foto' : 'fotos'}</span>
                             <button class="btn-fav ${isFav ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavorite('${item.codigo}')" title="Favoritar">
@@ -949,7 +1015,9 @@
                         <div class="card-body">
                             <span class="card-type">${item.tipo}</span>
                             <h4 class="card-title" onclick="openGallery('${item.codigo}')">${item.titulo}</h4>
+                            ${incorporadoraHtml}
                             <p class="card-location"><i class="fa-solid fa-location-dot"></i> ${item.bairro} - ${item.cidade}</p>
+                            ${descricaoResumoHtml}
                             
                             <div class="card-features">
                                 <span><i class="fa-solid fa-bed"></i> ${item.quartos}</span>
@@ -961,7 +1029,7 @@
                             <div class="card-footer">
                                 <div class="card-price">${formatPrice(item.preco, item.finalidade)}</div>
                                 <a href="https://wa.me/message/QEJKY7G4BXRTP1" target="_blank" class="btn-whatsapp">
-                                    <i class="fa-brands fa-whatsapp"></i> Tenho interesse
+                                    <i class="fa-brands fa-whatsapp"></i> Saiba mais
                                 </a>
                             </div>
                         </div>
@@ -975,14 +1043,20 @@
             const item = listaImoveis.find(i => i.codigo === codigo);
             if (!item) return;
 
-            currentModalPhotos = (item.imagens && item.imagens.length > 0) ? item.imagens : ['https://unsplash.com'];
+            currentModalPhotos = (item.imagens && item.imagens.length > 0) ? item.imagens : ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80'];
             currentPhotoIndex = 0;
 
             document.getElementById('modal-type').textContent = `${item.finalidade} • ${item.tipo} • Cód: ${item.codigo}`;
             document.getElementById('modal-title').textContent = item.titulo;
+            
+            const devWrap = document.getElementById('modal-developer-wrap');
+            devWrap.innerHTML = item.incorporadora 
+                ? `<div class="modal-developer"><i class="fa-solid fa-building"></i> Incorporadora Responsável: ${item.incorporadora}</div>` 
+                : '';
+
             document.getElementById('modal-location').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${item.bairro} - ${item.cidade}`;
-            document.getElementById('modal-price').textContent = formatPrice(item.preco, item.finalidade);
-            document.getElementById('modal-desc').textContent = item.descricao || 'Entre em contato pelo WhatsApp para mais informações e agendamento de visita.';
+            document.getElementById('modal-price').innerHTML = formatPrice(item.preco, item.finalidade);
+            document.getElementById('modal-desc').textContent = item.descricao || 'Entre em contato pelo WhatsApp para mais informações, tabelas e agendamento de visita.';
             
             document.getElementById('modal-features').innerHTML = `
                 <span><i class="fa-solid fa-bed"></i> ${item.quartos} Quartos</span>
@@ -991,7 +1065,6 @@
                 <span><i class="fa-solid fa-ruler-combined"></i> ${item.area}</span>
             `;
 
-            const waMsg = encodeURIComponent(`Olá Alex! Vi as fotos do imóvel *${item.titulo}* (Cód: ${item.codigo}) no site e gostaria de agendar uma visita.`);
             document.getElementById('modal-wa-btn').href = `https://wa.me/message/QEJKY7G4BXRTP1`;
 
             const thumbsContainer = document.getElementById('modal-thumbs');
@@ -1051,7 +1124,7 @@
             currentPurpose = purpose;
             showingOnlyFavs = false;
             document.querySelectorAll('.tab-btn').forEach(b => {
-                b.classList.toggle('active', b.textContent.includes(purpose === 'Venda' ? 'Comprar' : purpose === 'Locação' ? 'Alugar' : 'Todos'));
+                b.classList.toggle('active', b.getAttribute('data-purpose') === purpose);
             });
             applyFilters();
         }
@@ -1073,14 +1146,25 @@
                 if (currentPurpose !== 'Todos' && item.finalidade.toLowerCase() !== currentPurpose.toLowerCase()) return false;
                 if (type && !item.tipo.toLowerCase().includes(type)) return false;
                 if (city && item.cidade.toLowerCase() !== city) return false;
-                if (search && !item.bairro.toLowerCase().includes(search) && !item.codigo.toLowerCase().includes(search) && !item.titulo.toLowerCase().includes(search)) return false;
+                
+                const devMatch = item.incorporadora && item.incorporadora.toLowerCase().includes(search);
+                if (search && !item.bairro.toLowerCase().includes(search) && !item.codigo.toLowerCase().includes(search) && !item.titulo.toLowerCase().includes(search) && !devMatch) return false;
+                
                 if (item.quartos < minBeds) return false;
                 if (item.vagas < minGarages) return false;
                 if (item.preco > maxPrice) return false;
                 return true;
             });
 
-            document.getElementById('results-title').textContent = showingOnlyFavs ? 'Meus Imóveis Favoritos' : 'Imóveis Disponíveis';
+            const titleEl = document.getElementById('results-title');
+            if (showingOnlyFavs) {
+                titleEl.textContent = 'Meus Imóveis Favoritos';
+            } else if (currentPurpose === 'Empreendimento') {
+                titleEl.textContent = 'Empreendimentos Disponíveis';
+            } else {
+                titleEl.textContent = 'Imóveis Disponíveis';
+            }
+
             renderProperties(filtered);
         }
 
@@ -1106,8 +1190,7 @@
         }
 
         function resetFilters() {
-            currentPurpose = 'Todos';
-            showingOnlyFavs = false;
+            filterByPurpose('Todos');
             document.getElementById('filter-type').value = '';
             document.getElementById('filter-city').value = '';
             document.getElementById('filter-search').value = '';
