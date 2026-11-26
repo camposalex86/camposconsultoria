@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Campos Corretor de Imóveis | CRECI: 248909-F - Araraquara e Região</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --emerald: #0d3b2e;
+            --emerald-light: #165442;
+            --gold: #c5a059;
+            --bg-light: #f8f9fa;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--emerald);
+        }
+
+        .brand img {
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .brand-text h1 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            line-height: 1.15;
+        }
+
+        .brand-text span {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--emerald);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: 1px solid #e5e7eb;
+            color: var(--emerald);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .icon-btn:hover {
+            background-color: var(--emerald);
+            color: var(--white);
+            border-color: var(--emerald);
+        }
+
+        .fav-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--gold);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero & Search */
+        .hero {
+            background: linear-gradient(rgba(13, 59, 46, 0.85), rgba(13, 59, 46, 0.92)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80') center/cover;
+            padding: 80px 20px 110px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #e5e7eb;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-wrapper {
+            max-width: 1100px;
+            margin: -65px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .search-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f3f4f6;
+            padding-bottom: 15px;
+        }
+
+        .tab-btn {
+            padding: 8px 20px;
+            border: none;
+            background: #f3f4f6;
+            color: var(--text-muted);
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--emerald);
+            color: var(--white);
+        }
+
+        .search-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            align-items: end;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            outline: none;
+        }
+
+        .form-group select:focus, .form-group input:focus {
+            border-color: var(--emerald);
+        }
+
+        .btn-search {
+            background: var(--emerald);
+            color: var(--white);
+            border: none;
+            padding: 13px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .btn-search:hover {
+            background: var(--emerald-light);
+        }
+
+        .advanced-toggle {
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--emerald);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .advanced-filters {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #f3f4f6;
+        }
+
+        .advanced-filters.show {
+            display: grid;
+        }
+
+        /* Listings Section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 20px 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h3 {
+            font-size: 1.6rem;
+            color: var(--emerald);
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+        }
+
+        .card-img-wrap {
+            position: relative;
+            height: 230px;
+            background: #e5e7eb;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .card-img-wrap:hover img {
+            transform: scale(1.04);
+        }
+
+        .badge-purpose {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--emerald);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .badge-purpose.empreendimento {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .badge-code {
+            position: absolute;
+            bottom: 12px;
+            left: 15px;
+            background: rgba(0,0,0,0.65);
+            color: var(--white);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            z-index: 2;
+        }
+
+        .badge-photos {
+            position: absolute;
+            bottom: 12px;
+            right: 15px;
+            background: rgba(13, 59, 46, 0.85);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .btn-fav {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+            z-index: 2;
+        }
+
+        .btn-fav.active {
+            color: #ef4444;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-type {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .card-developer {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(13, 59, 46, 0.08);
+            color: var(--emerald);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+
+        .card-title:hover {
+            color: var(--emerald);
+        }
+
+        .card-location {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-excerpt {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-features {
+            display: flex;
+            gap: 15px;
+            padding: 12px 0;
+            border-top: 1px solid #f3f4f6;
+            border-bottom: 1px solid #f3f4f6;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .card-features span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--emerald);
+        }
+
+        .card-price small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: var(--white);
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-whatsapp:hover {
+            opacity: 0.9;
+        }
+
+        /* Modal Galeria */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--white);
+            max-width: 900px;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.65);
+            color: var(--white);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--emerald);
+        }
+
+        .gallery-main {
+            position: relative;
+            height: 440px;
+            background: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-main img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.85);
+            color: var(--emerald);
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .gallery-nav:hover {
+            background: var(--white);
+        }
+
+        .gallery-prev { left: 15px; }
+        .gallery-next { right: 15px; }
+
+        .gallery-counter {
+            position: absolute;
+            bottom: 12px;
+            right: 15px;
+            background: rgba(0,0,0,0.7);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .gallery-thumbs {
+            display: flex;
+            gap: 8px;
+            padding: 12px 20px;
+            background: #f3f4f6;
+            overflow-x: auto;
+        }
+
+        .gallery-thumbs img {
+            width: 72px;
+            height: 54px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .gallery-thumbs img.active {
+            opacity: 1;
+            border-color: var(--emerald);
+        }
+
+        .modal-details {
+            padding: 25px;
+        }
+
+        .modal-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-top: 4px;
+        }
+
+        .modal-developer {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(13, 59, 46, 0.08);
+            color: var(--emerald);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        .modal-price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--emerald);
+        }
+
+        .modal-desc {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 15px 0 25px;
+            white-space: pre-line;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--emerald);
+            color: var(--white);
+            padding: 50px 20px 25px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #d1d5db;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        /* Floating WhatsApp */
+        .float-wa {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            color: var(--white);
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            z-index: 99;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.08);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h2 { font-size: 1.8rem; }
+            .gallery-main { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand" onclick="resetFilters()">
+                <img src="fotos/logo.png" alt="Alex Campos Corretor de Imóveis - CRECI: 248909-F" onerror="this.style.display='none'">
+                <div class="brand-text">
+                    <h1>Alex Campos Corretor de Imóveis</h1>
+                    <span>CRECI: 248909-F</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#" onclick="filterByPurpose('Todos')">Início</a>
+                <a href="#imoveis" onclick="filterByPurpose('Venda')">Comprar</a>
+                <a href="#imoveis" onclick="filterByPurpose('Locação')">Alugar</a>
+                <a href="#imoveis" onclick="filterByPurpose('Empreendimento')">Empreendimentos</a>
+                <a href="#contato">Contato</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn" title="Meus Favoritos" onclick="toggleShowFavorites()">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="fav-badge" id="fav-count">0</span>
+                </button>
+                <a href="https://instagram.com" target="_blank" class="icon-btn" title="Instagram @alexcamposcorretor">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>O passo seguro para a sua conquista</h2>
+        <p>Alex Campos Corretor de Imóveis (CRECI: 248909-F) — Encontre os melhores imóveis e lançamentos em Araraquara e Região com atendimento personalizado.</p>
+    </section>
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <div class="search-tabs">
+                <button class="tab-btn active" data-purpose="Todos" onclick="setTab(this, 'Todos')">Todos</button>
+                <button class="tab-btn" data-purpose="Venda" onclick="setTab(this, 'Venda')">Comprar</button>
+                <button class="tab-btn" data-purpose="Locação" onclick="setTab(this, 'Locação')">Alugar</button>
+                <button class="tab-btn" data-purpose="Empreendimento" onclick="setTab(this, 'Empreendimento')">Empreendimentos</button>
+            </div>
+
+            <div class="search-grid">
+                <div class="form-group">
+                    <label>Tipo de Imóvel</label>
+                    <select id="filter-type">
+                        <option value="">Todos os tipos</option>
+                        <option value="Casa">Casa / Sobrado</option>
+                        <option value="Apartamento">Apartamento</option>
+                        <option value="Condomínio">Casa em Condomínio</option>
+                        <option value="Loteamento">Loteamento / Terreno</option>
+                        <option value="Comercial">Comercial</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Cidade</label>
+                    <select id="filter-city">
+                        <option value="">Todas as cidades</option>
+                        <option value="Araraquara">Araraquara</option>
+                        <option value="Américo Brasiliense">Américo Brasiliense</option>
+                        <option value="São Carlos">São Carlos</option>
+                        <option value="Ribeirão Preto">Ribeirão Preto</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Bairro, Código ou Incorporadora</label>
+                    <input type="text" id="filter-search" placeholder="Ex: Centro, Damha, MRV, Cód...">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn-search" onclick="applyFilters()">
+                        <i class="fa-solid fa-magnifying-glass"></i> Buscar
+                    </button>
+                </div>
+            </div>
+
+            <button class="advanced-toggle" onclick="toggleAdvanced()">
+                <i class="fa-solid fa-sliders"></i> Busca avançada
+            </button>
+
+            <div class="advanced-filters" id="advanced-panel">
+                <div class="form-group">
+                    <label>Quartos (mínimo)</label>
+                    <select id="filter-beds">
+                        <option value="0">Qualquer</option>
+                        <option value="1">1+ Quarto</option>
+                        <option value="2">2+ Quartos</option>
+                        <option value="3">3+ Quartos</option>
+                        <option value="4">4+ Quartos</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Vagas (mínimo)</label>
+                    <select id="filter-garages">
+                        <option value="0">Qualquer</option>
+                        <option value="1">1+ Vaga</option>
+                        <option value="2">2+ Vagas</option>
+                        <option value="3">3+ Vagas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Valor Máximo (R$)</label>
+                    <input type="number" id="filter-max-price" placeholder="Ex: 500000">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container" id="imoveis">
+        <div class="section-header">
+            <h3 id="results-title">Imóveis em Destaque</h3>
+            <span id="results-count" style="color: var(--text-muted); font-size: 0.9rem;"></span>
+        </div>
+
+        <div class="properties-grid" id="properties-container"></div>
+    </main>
+
+    <!-- Modal de Galeria e Detalhes -->
+    <div class="modal-overlay" id="gallery-modal" onclick="closeModalOnBg(event)">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()" title="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="gallery-main">
+                <button class="gallery-nav gallery-prev" onclick="changePhoto(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <img id="modal-main-img" src="" alt="Foto do imóvel">
+                <button class="gallery-nav gallery-next" onclick="changePhoto(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                <span class="gallery-counter" id="modal-photo-counter">1 / 1</span>
+            </div>
+
+            <div class="gallery-thumbs" id="modal-thumbs"></div>
+
+            <div class="modal-details">
+                <div class="modal-header-info">
+                    <div>
+                        <span class="card-type" id="modal-type"></span>
+                        <h3 class="modal-title" id="modal-title"></h3>
+                        <div id="modal-developer-wrap"></div>
+                        <p class="card-location" id="modal-location" style="margin-bottom: 0; margin-top: 8px;"></p>
+                    </div>
+                    <div class="modal-price" id="modal-price"></div>
+                </div>
+
+                <div class="card-features" id="modal-features"></div>
+
+                <p class="modal-desc" id="modal-desc"></p>
+
+                <a href="#" target="_blank" class="btn-whatsapp" id="modal-wa-btn" style="padding: 12px 24px; font-size: 1rem;">
+                    <i class="fa-brands fa-whatsapp"></i> Falar com Alex Campos Corretor de Imóveis sobre este imóvel
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contato">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Alex Campos Corretor de Imóveis</h4>
+                <p>CRECI: 248909-F</p>
+                <p>Araraquara e Região • O passo seguro para a sua conquista.</p>
+                <p>Atendimento especializado para compra, venda, locação e lançamentos.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <a href="#imoveis" onclick="filterByPurpose('Venda')">Imóveis à Venda</a>
+                <a href="#imoveis" onclick="filterByPurpose('Locação')">Imóveis para Alugar</a>
+                <a href="#imoveis" onclick="filterByPurpose('Empreendimento')">Empreendimentos</a>
+                <a href="#" onclick="toggleShowFavorites()">Meus Favoritos</a>
+            </div>
+            <div class="footer-col">
+                <h4>Fale Conosco</h4>
+                <a href="https://wa.me/message/QEJKY7G4BXRTP1" target="_blank"><i class="fa-brands fa-whatsapp"></i> (16) 99706-1704</a>
+                <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i> @alexcamposcorretor</a>
+                <p><i class="fa-solid fa-location-dot"></i> Araraquara - SP</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Alex Campos Corretor de Imóveis • CRECI: 248909-F. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/message/QEJKY7G4BXRTP1" target="_blank" class="float-wa" title="Falar com Alex Campos Corretor de Imóveis no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Carrega a sua lista de imóveis e empreendimentos do arquivo imoveis.js -->
+    <script src="imoveis.js"></script>
+
+    <script>
+        const listaImoveis = typeof IMOVEIS !== 'undefined' ? IMOVEIS : [];
+        let currentPurpose = "Todos";
+        let favorites = JSON.parse(localStorage.getItem('campos_favs')) || [];
+        let showingOnlyFavs = false;
+        
+        let currentModalPhotos = [];
+        let currentPhotoIndex = 0;
+
+        function formatPrice(value, purpose) {
+    if (!value || value === 0) return 'Consulte condições';
+    const formatted = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    if (purpose.toLowerCase().includes('loca')) return `${formatted} /mês`;
+    return formatted;
+        }
+
+        function renderProperties(list) {
+            const container = document.getElementById('properties-container');
+            const countEl = document.getElementById('results-count');
+            container.innerHTML = '';
+            
+            const labelItem = currentPurpose === 'Empreendimento' ? 'empreendimento(s)' : 'item(ns)';
+            countEl.textContent = `${list.length} ${labelItem} encontrado(s)`;
+
+            if (list.length === 0) {
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">Nenhum imóvel ou empreendimento encontrado com esses filtros.</p>';
+                return;
+            }
+
+            list.forEach(item => {
+                const isFav = favorites.includes(item.codigo);
+                const isEmpreendimento = item.finalidade.toLowerCase().includes('empreendimento');
+                const fotos = (item.imagens && item.imagens.length > 0) ? item.imagens : ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80'];
+                const totalFotos = fotos.length;
+                
+                const incorporadoraHtml = item.incorporadora 
+                    ? `<div class="card-developer"><i class="fa-solid fa-building"></i> Incorporadora: ${item.incorporadora}</div>` 
+                    : '';
+
+                const descricaoResumoHtml = (isEmpreendimento && item.descricao)
+                    ? `<p class="card-excerpt">${item.descricao}</p>`
+                    : '';
+
+                const card = `
+                    <div class="property-card">
+                        <div class="card-img-wrap" onclick="openGallery('${item.codigo}')">
+                            <span class="badge-purpose ${isEmpreendimento ? 'empreendimento' : ''}">${item.finalidade}</span>
+                            <span class="badge-code">Cód: ${item.codigo}</span>
+                            <span class="badge-photos"><i class="fa-regular fa-images"></i> ${totalFotos} ${totalFotos === 1 ? 'foto' : 'fotos'}</span>
+                            <button class="btn-fav ${isFav ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavorite('${item.codigo}')" title="Favoritar">
+                                <i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i>
+                            </button>
+                            <img src="${fotos[0]}" alt="${item.titulo}" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-type">${item.tipo}</span>
+                            <h4 class="card-title" onclick="openGallery('${item.codigo}')">${item.titulo}</h4>
+                            ${incorporadoraHtml}
+                            <p class="card-location"><i class="fa-solid fa-location-dot"></i> ${item.bairro} - ${item.cidade}</p>
+                            ${descricaoResumoHtml}
+                            
+                            <div class="card-features">
+                                <span><i class="fa-solid fa-bed"></i> ${item.quartos}</span>
+                                <span><i class="fa-solid fa-bath"></i> ${item.banheiros}</span>
+                                <span><i class="fa-solid fa-car"></i> ${item.vagas}</span>
+                                <span><i class="fa-solid fa-ruler-combined"></i> ${item.area}</span>
+                            </div>
+
+                            <div class="card-footer">
+                                <div class="card-price">${formatPrice(item.preco, item.finalidade)}</div>
+                                <a href="https://wa.me/message/QEJKY7G4BXRTP1" target="_blank" class="btn-whatsapp">
+                                    <i class="fa-brands fa-whatsapp"></i> Saiba mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        function openGallery(codigo) {
+            const item = listaImoveis.find(i => i.codigo === codigo);
+            if (!item) return;
+
+            currentModalPhotos = (item.imagens && item.imagens.length > 0) ? item.imagens : ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80'];
+            currentPhotoIndex = 0;
+
+            document.getElementById('modal-type').textContent = `${item.finalidade} • ${item.tipo} • Cód: ${item.codigo}`;
+            document.getElementById('modal-title').textContent = item.titulo;
+            
+            const devWrap = document.getElementById('modal-developer-wrap');
+            devWrap.innerHTML = item.incorporadora 
+                ? `<div class="modal-developer"><i class="fa-solid fa-building"></i> Incorporadora Responsável: ${item.incorporadora}</div>` 
+                : '';
+
+            document.getElementById('modal-location').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${item.bairro} - ${item.cidade}`;
+            document.getElementById('modal-price').innerHTML = formatPrice(item.preco, item.finalidade);
+            document.getElementById('modal-desc').textContent = item.descricao || 'Entre em contato pelo WhatsApp para mais informações, tabelas e agendamento de visita.';
+            
+            document.getElementById('modal-features').innerHTML = `
+                <span><i class="fa-solid fa-bed"></i> ${item.quartos} Quartos</span>
+                <span><i class="fa-solid fa-bath"></i> ${item.banheiros} Banheiros</span>
+                <span><i class="fa-solid fa-car"></i> ${item.vagas} Vagas</span>
+                <span><i class="fa-solid fa-ruler-combined"></i> ${item.area}</span>
+            `;
+
+            document.getElementById('modal-wa-btn').href = `https://wa.me/message/QEJKY7G4BXRTP1`;
+
+            const thumbsContainer = document.getElementById('modal-thumbs');
+            thumbsContainer.innerHTML = '';
+            currentModalPhotos.forEach((url, idx) => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.onclick = () => showPhoto(idx);
+                thumbsContainer.appendChild(img);
+            });
+
+            showPhoto(0);
+            document.getElementById('gallery-modal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showPhoto(index) {
+            if (currentModalPhotos.length === 0) return;
+            currentPhotoIndex = (index + currentModalPhotos.length) % currentModalPhotos.length;
+            
+            document.getElementById('modal-main-img').src = currentModalPhotos[currentPhotoIndex];
+            document.getElementById('modal-photo-counter').textContent = `${currentPhotoIndex + 1} / ${currentModalPhotos.length}`;
+
+            const thumbs = document.querySelectorAll('#modal-thumbs img');
+            thumbs.forEach((t, idx) => t.classList.toggle('active', idx === currentPhotoIndex));
+        }
+
+        function changePhoto(step) {
+            showPhoto(currentPhotoIndex + step);
+        }
+
+        function closeModal() {
+            document.getElementById('gallery-modal').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnBg(e) {
+            if (e.target.id === 'gallery-modal') closeModal();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('gallery-modal').classList.contains('open')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') changePhoto(1);
+            if (e.key === 'ArrowLeft') changePhoto(-1);
+        });
+
+        function setTab(btn, purpose) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentPurpose = purpose;
+            showingOnlyFavs = false;
+            applyFilters();
+        }
+
+        function filterByPurpose(purpose) {
+            currentPurpose = purpose;
+            showingOnlyFavs = false;
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.toggle('active', b.getAttribute('data-purpose') === purpose);
+            });
+            applyFilters();
+        }
+
+        function toggleAdvanced() {
+            document.getElementById('advanced-panel').classList.toggle('show');
+        }
+
+        function applyFilters() {
+            const type = document.getElementById('filter-type').value.toLowerCase();
+            const city = document.getElementById('filter-city').value.toLowerCase();
+            const search = document.getElementById('filter-search').value.toLowerCase();
+            const minBeds = parseInt(document.getElementById('filter-beds').value) || 0;
+            const minGarages = parseInt(document.getElementById('filter-garages').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('filter-max-price').value) || Infinity;
+
+            const filtered = listaImoveis.filter(item => {
+                if (showingOnlyFavs && !favorites.includes(item.codigo)) return false;
+                if (currentPurpose !== 'Todos' && item.finalidade.toLowerCase() !== currentPurpose.toLowerCase()) return false;
+                if (type && !item.tipo.toLowerCase().includes(type)) return false;
+                if (city && item.cidade.toLowerCase() !== city) return false;
+                
+                const devMatch = item.incorporadora && item.incorporadora.toLowerCase().includes(search);
+                if (search && !item.bairro.toLowerCase().includes(search) && !item.codigo.toLowerCase().includes(search) && !item.titulo.toLowerCase().includes(search) && !devMatch) return false;
+                
+                if (item.quartos < minBeds) return false;
+                if (item.vagas < minGarages) return false;
+                if (item.preco > maxPrice) return false;
+                return true;
+            });
+
+            const titleEl = document.getElementById('results-title');
+            if (showingOnlyFavs) {
+                titleEl.textContent = 'Meus Imóveis Favoritos';
+            } else if (currentPurpose === 'Empreendimento') {
+                titleEl.textContent = 'Empreendimentos Disponíveis';
+            } else {
+                titleEl.textContent = 'Imóveis Disponíveis';
+            }
+
+            renderProperties(filtered);
+        }
+
+        function toggleFavorite(codigo) {
+            if (favorites.includes(codigo)) {
+                favorites = favorites.filter(c => c !== codigo);
+            } else {
+                favorites.push(codigo);
+            }
+            localStorage.setItem('campos_favs', JSON.stringify(favorites));
+            updateFavCount();
+            applyFilters();
+        }
+
+        function updateFavCount() {
+            document.getElementById('fav-count').textContent = favorites.length;
+        }
+
+        function toggleShowFavorites() {
+            showingOnlyFavs = !showingOnlyFavs;
+            applyFilters();
+            document.getElementById('imoveis').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetFilters() {
+            filterByPurpose('Todos');
+            document.getElementById('filter-type').value = '';
+            document.getElementById('filter-city').value = '';
+            document.getElementById('filter-search').value = '';
+            applyFilters();
+        }
+
+        updateFavCount();
+        applyFilters();
+    </script>
+</body>
+</html>
